@@ -1,5 +1,6 @@
 import { Directive, ElementRef, input } from '@angular/core';
 import { ConfrimationModalService } from './confirmation-modal/confirmation-modal.service';
+import { LogDirective } from './log.directive';
 
 @Directive({
   selector: 'a[appSafeLink]',
@@ -7,6 +8,7 @@ import { ConfrimationModalService } from './confirmation-modal/confirmation-moda
   host: {
     '(click)': 'onConfirmLeavePage($event)',
   },
+  hostDirectives: [LogDirective]
 })
 export class SafeLinkDirective {
   quaryParam = input('myapp', { alias: 'appSafeLink' });
